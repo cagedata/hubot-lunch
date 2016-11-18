@@ -111,13 +111,13 @@ module.exports = (robot) ->
   # Save what a person wants to the lunch order
   robot.respond /i want (.*)/i, (msg) ->
     item = msg.match[1].trim()
-    lunch.add msg.message.user, item
+    lunch.add msg.message.user.name, item
     msg.send "ok, added #{item} to your order."
 
   ##
   # Remove the persons items from the lunch order
   robot.respond /remove my order/i, (msg) ->
-    lunch.remove msg.message.user
+    lunch.remove msg.message.user.name
     msg.send "ok, I removed your order."
 
   ##
