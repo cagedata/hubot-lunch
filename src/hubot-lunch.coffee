@@ -33,12 +33,12 @@ ROOM = process.env.HUBOT_LUNCHBOT_ROOM
 # Explain how to use the lunch bot
 MESSAGE = """
 Let's order lunch!!!1 You can say:
-bot I want the BLT Sandwich - adds "BLT Sandwich" to the list of items to be ordered
-bot remove my order - removes your order
-bot cancel all orders - cancels all the orders
-bot lunch orders - lists all orders
-bot who should order|pickup|get lunch? - randomly selects person to either order or pickup lunch
-bot lunch help - displays this help message
+#{robot.name} I want the BLT Sandwich - adds "BLT Sandwich" to the list of items to be ordered
+#{robot.name} remove my order - removes your order
+#{robot.name} cancel all orders - cancels all the orders
+#{robot.name} lunch orders - lists all orders
+#{robot.name} who should order|pickup|get lunch? - randomly selects person to either order or pickup lunch
+#{robot.name} lunch help - displays this help message
 """
 
 ##
@@ -111,13 +111,13 @@ module.exports = (robot) ->
   # Save what a person wants to the lunch order
   robot.respond /i want (.*)/i, (msg) ->
     item = msg.match[1].trim()
-    lunch.add msg.message.user.name, item
+    lunch.add msg.message.user, item
     msg.send "ok, added #{item} to your order."
 
   ##
   # Remove the persons items from the lunch order
   robot.respond /remove my order/i, (msg) ->
-    lunch.remove msg.message.user.name
+    lunch.remove msg.message.user
     msg.send "ok, I removed your order."
 
   ##
