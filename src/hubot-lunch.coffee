@@ -130,8 +130,12 @@ module.exports = (robot) ->
   # Help decided who should either order, pick up or get
   robot.respond /who should (order|pick up|get) lunch?/i, (msg) ->
     orders = lunch.get().map (user) -> user
-    key = Math.floor(Math.random() * orders.length)
-    msg.send "#{orders[key]} looks like you have to #{msg.match[1]} lunch today!"
+    if orders.length
+      key = Math.floor(Math.random() * orders.length)
+      msg.send "#{orders[key]} looks like you have to #{msg.match[1]} lunch today!"
+     else
+      msg.send "No one has ordered lunch yet."
+     end
 
   ##
   # Display usage details
