@@ -19,8 +19,9 @@ Include package in Hubot's `external-scripts.json`:
 ## Configuration
 
     HUBOT_LUNCHBOT_CLEAR_AT  # When to clear the current lunch order, use cron style syntax (defaults to: 0 0 0 * * *)
-    HUBOT_LUNCHBOT_NOTIFY_AT # When to notify the HUBOT_LUNCHBOT_ROOM to start the lunch order, use cron style syntax (defaults to: 0 0 10 * * 4)
-    HUBOT_LUNCHBOT_ROOM      # xxxxx_room_name@conf.hipchat.com
+    HUBOT_LUNCHBOT_NOTIFY_AT # When to notify the HUBOT_LUNCHBOT_ROOM to start the lunch order, use cron style syntax (defaults to: 0 0 11 * * *)
+    HUBOT_LUNCHBOT_ROOM      # e.g. "lunch" or "general" without the "#"
+    TZ                       # TimeZone for cron e.g. "America/Los_Angeles"
 
 ## Commands
 
