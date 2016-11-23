@@ -30,18 +30,6 @@
 ROOM = process.env.HUBOT_LUNCHBOT_ROOM
 
 ##
-# Explain how to use the lunch bot
-MESSAGE = """
-Let's order lunch!!!1 You can say:
-#{robot.name} I want the BLT Sandwich - adds "BLT Sandwich" to the list of items to be ordered
-#{robot.name} remove my order - removes your order
-#{robot.name} cancel all orders - cancels all the orders
-#{robot.name} lunch orders - lists all orders
-#{robot.name} who should order|pickup|get lunch? - randomly selects person to either order or pickup lunch
-#{robot.name} lunch help - displays this help message
-"""
-
-##
 # Set to local timezone
 TIMEZONE = process.env.TZ
 
@@ -58,6 +46,17 @@ CLEAR_AT = process.env.HUBOT_LUNCHBOT_CLEAR_AT || '0 0 0 * * *' # midnight
 CronJob = require("cron").CronJob
 
 module.exports = (robot) ->
+
+  # Explain how to use the lunch bot
+  MESSAGE = """
+  Let's order lunch!!!1 You can say:
+  #{robot.name} I want the BLT Sandwich - adds "BLT Sandwich" to the list of items to be ordered
+  #{robot.name} remove my order - removes your order
+  #{robot.name} cancel all orders - cancels all the orders
+  #{robot.name} lunch orders - lists all orders
+  #{robot.name} who should order|pickup|get lunch? - randomly selects person to either order or pickup lunch
+  #{robot.name} lunch help - displays this help message
+  """
 
   ##
   # Define the lunch functions
